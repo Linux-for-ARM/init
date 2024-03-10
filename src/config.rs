@@ -71,6 +71,27 @@ pub enum Action {
     reboot,
 }
 
+/// Contains a list of running services
+///
+/// This list is used to shut down the system and also to view information about running services
+#[derive(Deserialize, Serialize)]
+pub struct LoadedServices {
+    pub service: Vec<LdSrv>,
+}
+
+/// Information about the running service
+#[derive(Deserialize, Serialize)]
+pub struct LdSrv {
+    /// Runlevel
+    pub rl: String,
+
+    /// Service name
+    pub name: String,
+
+    /// Return code
+    pub code: i32,
+}
+
 impl Action {
     /// Performs a reboot or system shutdown
     pub fn take(&self) -> Result<()> {
@@ -91,6 +112,7 @@ impl Action {
 }
 
 impl TomlConfig for Config {}
+impl TomlConfig for LoadedServices {}
 
 impl Default for Config {
     fn default() -> Self {
@@ -123,6 +145,14 @@ impl Default for Runlevel {
 impl Default for Action {
     fn default() -> Self {
         Self::run_services
+    }
+}
+
+impl Default for LoadedServices {
+    fn default() -> Self {
+        Self {
+            service: vec![],
+        }
     }
 }
 
