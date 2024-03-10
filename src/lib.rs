@@ -152,12 +152,12 @@ pub fn poweroff_main() {
             .blue()
     );
 
-    // stop_services();
+    stop_services();
 
-    // if let Err(why) = reboot(RebootMode::RB_POWER_OFF) {
-    // eprintln!("Power off error: {why}");
-    // loop {}
-    // }
+    if let Err(why) = reboot(RebootMode::RB_POWER_OFF) {
+        eprintln!("Power off error: {why}");
+        loop {}
+    }
 }
 
 pub fn reboot_main() {
