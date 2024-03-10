@@ -1,0 +1,9 @@
+[service.start]
+SingleCmd = "/sbin/netplugd"
+
+[service.stop]
+SingleCmd = "/bin/killall netplugd"
+
+[init]
+description = "Toggle netplugd"
+on_error = "ignore"

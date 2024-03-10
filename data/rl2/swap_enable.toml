@@ -1,0 +1,9 @@
+[service.start]
+SingleCmd = "/sbin/swapon -a"
+
+[service.stop]
+SingleCmd = "/sbin/swapoff -a"
+
+[init]
+description = "Toggle swap space"
+on_error = "ignore"

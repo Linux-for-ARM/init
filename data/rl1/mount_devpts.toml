@@ -1,0 +1,8 @@
+[service]
+
+[service.start]
+FewCmd = ["/bin/mkdir /dev/pts", "/bin/mount -t devpts none /dev/pts"]
+
+[init]
+description = "Mount /dev/pts"
+on_error = "abort"

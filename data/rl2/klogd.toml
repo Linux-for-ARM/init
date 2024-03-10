@@ -1,0 +1,9 @@
+[service.start]
+# SingleCmd = "/sbin/klogd"
+
+[service.stop]
+SingleCmd = "/bin/killall klogd"
+
+[init]
+description = "Toggle klogd"
+on_error = "ignore"

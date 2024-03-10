@@ -1,0 +1,6 @@
+[service.start]
+SingleCmd = "/bin/mount -t tmpfs /tmp /tmp"
+
+[init]
+description = "Mount tmpfs"
+on_error = "abort"

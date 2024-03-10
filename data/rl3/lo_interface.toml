@@ -1,0 +1,6 @@
+[service.start]
+SingleCmd = "/sbin/ifconfig lo up 127.0.0.1"
+
+[init]
+description = "Setting up interface lo"
+on_error = "ignore"

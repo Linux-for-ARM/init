@@ -1,0 +1,52 @@
+final_runlevel = "rl3"
+
+[[runlevel]]
+dir = "rl0"
+use = false
+description = "System power off"
+action = "power_off"
+
+[[runlevel]]
+dir = "rl1"
+description = "Single user mode"
+services = [
+  "mount_procfs",
+  "mount_sysfs",
+  "mount_tmpfs",
+  "mount_devpts",
+  "mount_devshm"
+]
+login_shell = "/bin/ash"
+
+[[runlevel]]
+dir = "rl2"
+description = "Multi user mode without network support"
+services = [
+  "swap_enable",
+  "set_hostname",
+  "syslogd",
+  "klogd"
+]
+login_shell = "/bin/login"
+
+[[runlevel]]
+dir = "rl3"
+description = "Multi user mode with network support"
+services = [
+  "lo_interface",
+  "netplugd"
+]
+login_shell = "/bin/login"
+
+[[runlevel]]
+dir = "rl4"
+use = false # this runlevel is unsupported yet
+description = "Graphical mode [UNSUPPORTED YET]"
+services = []
+login_shell = ""
+
+[[runlevel]]
+dir = "rl5"
+use = false
+description = "System reboot"
+action = "reboot"

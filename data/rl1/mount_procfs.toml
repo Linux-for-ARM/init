@@ -1,0 +1,6 @@
+[service.start]
+SingleCmd = "/bin/mount -t proc none /proc"
+
+[init]
+description = "Mount procfs"
+on_error = "abort"

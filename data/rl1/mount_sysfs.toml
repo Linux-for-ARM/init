@@ -1,0 +1,6 @@
+[service.start]
+SingleCmd = "/bin/mount -t sysfs none /sys"
+
+[init]
+description = "Mount sysfs"
+on_error = "abort"

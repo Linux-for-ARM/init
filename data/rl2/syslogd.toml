@@ -1,0 +1,9 @@
+[service.start]
+SingleCmd = "/sbin/syslogd -m 0 -s 65536 -L"
+
+[service.stop]
+SingleCmd = "/bin/killall syslogd"
+
+[init]
+description = "Toggle syslogd"
+on_error = "ignore"

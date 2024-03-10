@@ -1,0 +1,6 @@
+[service.start]
+SingleCmd = "/bin/hostname -F /etc/hostname"
+
+[init]
+description = "Setting hostname"
+on_error = "ignore"
